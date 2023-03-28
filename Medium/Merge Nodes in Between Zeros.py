@@ -5,9 +5,6 @@ class Node:
         self.val = val
         self.next = None
 
-    def __repr__(self):
-        return self.val
-
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -31,25 +28,21 @@ llist.add_first(Node(3))
 llist.add_first(Node(1))
 llist.add_first(Node(0))
 llist.add_first(Node(4))
+llist.add_first(Node(5))
+llist.add_first(Node(2))
 llist.add_first(Node(0))
 print(llist)
 
+
+tmp = llist.head.next  #т.к начинаем с нуля
 cnt = 0
-nums = []
-head = llist.head
-while head:
-    if head.val != 0:
-        cnt += head.val
+llist2 = LinkedList()
+while tmp:
+    if tmp.val != 0:
+        cnt += tmp.val
     else:
-        nums.append(cnt)
+        llist2.add_first(Node(cnt))
         cnt = 0
-    head = head.next
+    tmp = tmp.next
 
-ll = LinkedList()
-
-for i in nums:
-    if i == 0:
-        continue
-    else:
-        ll.add_first(Node(i))
-print(ll)
+print(llist2)
