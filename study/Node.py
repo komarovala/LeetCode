@@ -29,10 +29,13 @@ class LinkedList:
 
     def delete(self, node):
         tmp = self.head
-        while tmp is not None:
-            if tmp.next.val == node.val:
-                tmp.next = tmp.next.next
-                return
+
+        while tmp:
+            if tmp.val == node.val:
+                if tmp.prev:
+                    tmp.prev.next = tmp.next
+                else:
+                    self.head = tmp.next
             tmp = tmp.next
         return
 
@@ -63,13 +66,14 @@ ll = LinkedList()
 ll.add_first(Node(2))
 ll.add_first(Node(5))
 ll.add_first(Node(4))
+ll.add_first(Node(6))
 ll.add_first(Node(1))
 ll.add_first(Node(6))
 
 print(ll.print_ll())
 
-# ll.delete(Node(5))
-# print(ll.print_ll())
-#
-ll.insert(Node(5), Node(7))
+ll.delete(Node(6))
 print(ll.print_ll())
+#
+# ll.insert(Node(2), Node(7))
+# print(ll.print_ll())
