@@ -29,13 +29,17 @@ class LinkedList:
 
     def delete(self, node):
         tmp = self.head
-
         while tmp:
             if tmp.val == node.val:
-                if tmp.prev:
+                if tmp.next is not None:
+                    tmp.next.prev = tmp.prev
+                elif tmp.prev is not None:
                     tmp.prev.next = tmp.next
                 else:
-                    self.head = tmp.next
+                    tmp.prev.next = None
+                tmp.next = None
+                tmp.previous = None
+                return
             tmp = tmp.next
         return
 
@@ -50,7 +54,15 @@ class LinkedList:
             tmp = tmp.next
 
     def insert_lst(self, node_after, new_list):
-        pass
+        tmp = self.head
+        while tmp:
+            if tmp.val == node_after.val:
+                new_list.tail.next = tmp.next
+                if tmp.next is not None:
+                    tmp.next.prev = new_list.tail
+                tmp.next = new_list.head
+                return
+            tmp = tmp.next
 
     def print_ll(self):
         s = ''
@@ -70,10 +82,18 @@ ll.add_first(Node(6))
 ll.add_first(Node(1))
 ll.add_first(Node(6))
 
-print(ll.print_ll())
+ll2 = LinkedList()
+ll2.add_first(Node(2))
+ll2.add_first(Node(5))
+ll2.add_first(Node(4))
 
+#
 ll.delete(Node(6))
 print(ll.print_ll())
 #
 # ll.insert(Node(2), Node(7))
+# print(ll.print_ll())
+
+# print(ll.print_ll())
+# ll.insert_lst(Node(2), ll2)
 # print(ll.print_ll())
