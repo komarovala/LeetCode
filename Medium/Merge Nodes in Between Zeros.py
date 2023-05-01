@@ -29,20 +29,21 @@ llist.add_first(Node(1))
 llist.add_first(Node(0))
 llist.add_first(Node(4))
 llist.add_first(Node(5))
-llist.add_first(Node(2))
 llist.add_first(Node(0))
 print(llist)
 
-
+dummy = llist.head
 tmp = llist.head.next  #т.к начинаем с нуля
-cnt = 0
-llist2 = LinkedList()
+sum = 0
 while tmp:
-    if tmp.val != 0:
-        cnt += tmp.val
+    if tmp.val == 0:
+        dummy = dummy.next
+        dummy.val = sum
+        sum = 0
     else:
-        llist2.add_first(Node(cnt))
-        cnt = 0
+        sum += tmp.val
     tmp = tmp.next
+dummy.next = None
 
-print(llist2)
+print(llist)
+
