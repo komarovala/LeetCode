@@ -73,23 +73,23 @@ class LinkedList:
         return s
 
 
-ll = LinkedList()
-# print(Node(1).val, Node(1).next)
-ll.add_first(Node(2))
-ll.add_first(Node(5))
-ll.add_first(Node(4))
-ll.add_first(Node(6))
-ll.add_first(Node(1))
-ll.add_first(Node(6))
-
-ll2 = LinkedList()
-ll2.add_first(Node(2))
-ll2.add_first(Node(5))
-ll2.add_first(Node(4))
-
+# ll = LinkedList()
+# # print(Node(1).val, Node(1).next)
+# ll.add_first(Node(2))
+# ll.add_first(Node(5))
+# ll.add_first(Node(4))
+# ll.add_first(Node(6))
+# ll.add_first(Node(1))
+# ll.add_first(Node(6))
 #
-ll.delete(Node(6))
-print(ll.print_ll())
+# ll2 = LinkedList()
+# ll2.add_first(Node(2))
+# ll2.add_first(Node(5))
+# ll2.add_first(Node(4))
+#
+# #
+# ll.delete(Node(6))
+# print(ll.print_ll())
 #
 # ll.insert(Node(2), Node(7))
 # print(ll.print_ll())
