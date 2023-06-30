@@ -32,3 +32,21 @@ for i, n in enumerate(nums):
         j += 1
     val = n
 print(num, nums[0:num])
+
+def removeDuplicates(nums) -> int:
+    l = 0
+    r = 0
+
+    while r <= len(nums) - 1:
+        if nums[l] == nums[r]:
+            r += 1
+        else:
+            l += 1
+            nums[l] = nums[r]
+            r += 1
+
+    return nums[0:l+1]
+
+
+print(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 4, 4, 4]))
+

@@ -1,4 +1,7 @@
 #https://leetcode.com/submissions/detail/909002631/
+from typing import List
+
+
 def twoSum(nums: List[int], target: int) -> List[int]:
     d = {}
 
@@ -10,3 +13,5 @@ def twoSum(nums: List[int], target: int) -> List[int]:
             d[n] = i
         else:
             return (i, d[diff])
+
+#Честный подход

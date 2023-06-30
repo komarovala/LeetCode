@@ -20,4 +20,4 @@ def isValid(s: str) -> bool:
             return False
     return True
 
-isValid('((')
+print(isValid('(())'))
